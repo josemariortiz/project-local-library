@@ -47,7 +47,7 @@ function getBorrowersForBook(book, accounts) {
 }
 
 module.exports = {
-  findAccountById, // Add the new helper function
+  findAccountById, 
   findAuthorById,
   findBookById,
   partitionBooksByBorrowedStatus,
