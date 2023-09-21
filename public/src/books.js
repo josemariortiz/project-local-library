@@ -1,7 +1,3 @@
-function findAccountById(accounts, id) {
-  return accounts.find((account) => account.id === id);
-}
-
 function findAuthorById(authors, id) {
   const foundId = authors.find((author) => author.id === id);
   return foundId;
@@ -29,12 +25,17 @@ function partitionBooksByBorrowedStatus(books) {
   return [isNotAvailable, isAvailable];
 }
 
+// helper function
+function findAccountById(accounts, id) {
+  return accounts.find((account) => account.id === id);
+}
+
 function getBorrowersForBook(book, accounts) {
   const borrowers = [];
 
   for (const transaction of book.borrows) {
     const accountId = transaction.id;
-    const account = findAccountById(accounts, accountId); // Use the helper function
+    const account = findAccountById(accounts, accountId); // helper function 
     account.returned = transaction.returned;
     borrowers.push(account);
 
